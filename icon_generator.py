@@ -2,7 +2,7 @@ import sys
 import os
 from PIL import Image, ImageFilter
 
-def generate_base_16_16_png (filename):
+def generate_base_16_16_png(filename):
     size = (16, 16)
     saved = "connect_icon.png"
     try:
@@ -17,7 +17,7 @@ def generate_base_16_16_png (filename):
         return img
 
     except:
-        print( "Error: Unable to load image " + filename)
+        print(f"Error: Unable to load image {filename}")
 
 
 
@@ -65,8 +65,7 @@ def main():
         return
 
     if path.lower().endswith(('.png', '.jpg', '.jpeg')):
-        img = generate_base_16_16_png(path)
-        if (img):
+        if img := generate_base_16_16_png(path):
             generate_grayscale_png(img)
             generate_failed_png(img)
             generate_waitting_png(img)
